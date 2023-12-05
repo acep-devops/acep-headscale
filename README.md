@@ -1,4 +1,3 @@
 # acep-headscale
 
-TODO: Enter the cookbook description here.
-
+Basic cookbook for setting up headscale server
