@@ -21,8 +21,7 @@ verifier:
   name: inspec
 
 platforms:
-  - name: ubuntu-20.04
-  - name: centos-8
+  - name: ubuntu-22.04
 
 suites:
   - name: default
