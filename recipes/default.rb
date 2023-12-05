@@ -26,6 +26,6 @@ template '/etc/headscale/config.yaml' do
   notifies :restart, 'service[headscale]', :immediately
 end
 
-service 'headscale' do 
+service 'headscale' do
   action [:enable, :start]
 end

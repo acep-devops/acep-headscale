@@ -1,6 +1,9 @@
 name: kitchen
 
-on: [pull_request]
+on:
+  pull_request:
+    paths-ignore:
+      - README.md
 
 jobs:
   dokken:
