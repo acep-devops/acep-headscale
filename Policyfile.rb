@@ -14,3 +14,5 @@ run_list 'acep-headscale::default'
 
 # Specify a custom source for a single cookbook:
 cookbook 'acep-headscale', path: '.'
+
+include_policy 'acep-devops-base', policy_group: 'dev', server: 'https://chef.io.alaska.edu/organizations/acep-devops'
