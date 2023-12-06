@@ -159,10 +159,10 @@ db_path: /var/lib/headscale/db.sqlite
 acme_url: https://acme-v02.api.letsencrypt.org/directory
 
 # Email to register with ACME provider
-acme_email: ""
+acme_email: "<%= @acme_email %>"
 
 # Domain name to request a TLS certificate for:
-tls_letsencrypt_hostname: ""
+tls_letsencrypt_hostname: "<%= @hostname %>"
 
 # Path to store certificates and metadata needed by
 # letsencrypt
@@ -203,7 +203,7 @@ acl_policy_path: ""
 #
 dns_config:
   # Whether to prefer using Headscale provided DNS or use local.
-  override_local_dns: true
+  override_local_dns: <%= @override_local_dns %>
 
   # List of DNS servers to expose to clients.
   nameservers:
@@ -247,7 +247,7 @@ dns_config:
 
   # Whether to use [MagicDNS](https://tailscale.com/kb/1081/magicdns/).
   # Only works if there is at least a nameserver defined.
-  magic_dns: true
+  magic_dns: <%= @magicdns %>
 
   # Defines the base domain to create the hostnames for MagicDNS.
   # `base_domain` must be a FQDNs, without the trailing dot.
