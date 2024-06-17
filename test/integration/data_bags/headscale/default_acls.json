@@ -1,0 +1,21 @@
+{
+    "id": "default_acls",
+    "headscale": {
+        "groups": {
+            "group:infra": [
+                "acep"
+            ]
+        },
+        "acls": [
+            {
+                "action": "accept",
+                "src": [
+                    "group:infra"
+                ],
+                "dst": [
+                    "*:22"
+                ]
+            }
+        ]
+    }
+}

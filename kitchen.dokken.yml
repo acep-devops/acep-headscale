@@ -2,9 +2,11 @@
 driver:
   name: dokken
   privileged: true
+  pid_one_command: /bin/systemd
 
 provisioner:
   name: dokken
+  clean_dokken_sandbox: false
 
 transport:
   name: dokken
@@ -16,4 +18,26 @@ platforms:
   - name: ubuntu-22.04
     driver:
       image: dokken/ubuntu-22.04
-      pid_one_command: /bin/systemd
+
+suites:
+  - name: default
+    provisioner:
+      policyfile: policies/acep-headscale-server.rb
+    driver:
+      hostname: headscale
+      ports:
+        - "8080:8080"
+    attributes:
+      headscale:
+        server_url: "http://localhost:8080"
+        port: 8080
+        enable_ssl: false
+  - name: client
+    provisioner:
+      policyfile: policies/acep-headscale-client.rb
+    driver:
+      hostname: tailscale-client
+    attributes:
+      tailscale:
+        login_server: "http://headscale:8080"
+        auth_key: 1af85022c5191a13741e137fdc76068870e9968f35bc8b87

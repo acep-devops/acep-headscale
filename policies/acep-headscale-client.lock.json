@@ -1,0 +1,51 @@
+{
+  "revision_id": "a08a7c87de5d74b3b9b185dbcc17e76236dea3b20adb35746bf82c7c8b2e569d",
+  "name": "acep-headscale-client",
+  "run_list": [
+    "recipe[acep-headscale::client]"
+  ],
+  "included_policy_locks": [
+
+  ],
+  "cookbook_locks": {
+    "acep-headscale": {
+      "version": "0.1.0",
+      "identifier": "d7a9e0aa641b9a05bdaea64d9180cac52ab144c7",
+      "dotted_decimal_identifier": "60703902389246874.1615932695613824.222948173628615",
+      "source": "..",
+      "cache_key": null,
+      "scm_info": {
+        "scm": "git",
+        "remote": "https://github.com/acep-devops/acep-headscale.git",
+        "revision": "c89d741ea4ec0010fea9199215c53222e5912919",
+        "working_tree_clean": false,
+        "published": true,
+        "synchronized_remote_branches": [
+          "origin/main"
+        ]
+      },
+      "source_options": {
+        "path": ".."
+      }
+    }
+  },
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "solution_dependencies": {
+    "Policyfile": [
+      [
+        "acep-headscale",
+        ">= 0.0.0"
+      ]
+    ],
+    "dependencies": {
+      "acep-headscale (0.1.0)": [
+
+      ]
+    }
+  }
+}

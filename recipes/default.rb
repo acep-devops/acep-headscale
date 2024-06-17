@@ -4,28 +4,28 @@
 #
 # Copyright:: 2023, The Authors, All Rights Reserved.
 
-headscale_pkg = "#{Chef::Config['file_cache_path']}/headscale_0.22.3_linux_amd64.deb"
+acls = data_bag_item('headscale', node['headscale']['acl_data_bag'])['headscale']
 
-remote_file headscale_pkg do
-  source node['headscale']['package_source']
-  checksum node['headscale']['package_checksum']
-  action :create
+headscale_config '/etc/headscale/config.yaml' do 
+  acls acls
+
+  server_url node['headscale']['server_url']
+  port node['headscale']['port']
+  listen_addr node['headscale']['listen_addr']
+  grpc_listen_addr node['headscale']['grpc_listen_addr']
+  override_local_dns node['headscale']['override_local_dns']
+  magicdns node['headscale']['magicdns']
+  ip_prefixes node['headscale']['ip_prefixes']
+  enable_ssl node['headscale']['enable_ssl']
+  acme_email node['headscale']['acme_email']
 end
 
-dpkg_package headscale_pkg do
-  action :install
+headscale 'default' do 
+  version '0.22.3'
+  checksum '2b45be5aa7b95c2512f57c83931ed3eb4f546fca5dfc771c7458a13392adb331'
+  action [:install, :enable, :start]
 end
 
-template '/etc/headscale/config.yaml' do
-  source 'headscale_config.yaml.erb'
-  variables node['headscale']
-  owner 'root'
-  group 'root'
-  mode '0755'
-  action :create
-  notifies :restart, 'service[headscale]', :immediately
-end
-
-service 'headscale' do
-  action [:enable, :start]
+headscale_user 'acep' do 
+  action :destroy
 end

@@ -12,3 +12,8 @@ end
 describe port(8080) do
   it { should be_listening }
 end
+
+describe file('/etc/headscale/acls.json') do 
+  it { should exist }
+  its('content') { should match 'group:infra' }
+end
