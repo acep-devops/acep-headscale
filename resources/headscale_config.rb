@@ -38,6 +38,13 @@ action :create do
     action :nothing
   end
 
+  directory ::File.dirname(new_resource.acl_path) do
+    owner 'root'
+    group 'root'
+    mode '0755'
+    action :create
+  end
+
   file new_resource.acl_path do
     owner 'root'
     group 'root'

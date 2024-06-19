@@ -22,4 +22,4 @@ Berksfile.lock
 Policyfile.lock.json
 
 .idea/
-
+policies/*.lock.json
