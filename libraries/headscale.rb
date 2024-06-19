@@ -12,10 +12,11 @@ module AcepHeadscale
   module HeadscaleHelpers
     def headscale_users
       users = JSON.parse(shell_out('headscale users list -o json').stdout)
-
       @headscale_users ||= users.collect do |user|
         user["name"]
-      end
+      end if !users.nil? && users.length > 0
+
+      @headscale_users || []
     end
 
     def clear_users 

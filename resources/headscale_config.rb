@@ -75,6 +75,7 @@ action :create do
     group 'root'
     mode '0755'
     action :create
+    notifies :start, 'service[headscale]', :immediately
     notifies :restart, 'service[headscale]', :delayed
   end
 end
