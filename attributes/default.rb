@@ -8,6 +8,7 @@ default['headscale']['acl_data_bag'] = 'default_acls'
 
 default['headscale']['enable_ssl'] = true
 default['headscale']['acme_email'] = 'uaf-acep-ci@alaska.edu'
+default['headscale']['base_domain'] = 'acep.priv'
 
 default['tailscale']['login_server'] = nil
 default['tailscale']['auth_key'] = nil
