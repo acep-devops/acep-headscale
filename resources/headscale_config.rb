@@ -18,6 +18,7 @@ property :base_domain, String, default: 'acep.priv'
 property :ip_prefixes, Array, default: ['100.64.0.0/10']
 property :enable_ssl, [true, false], default: true
 property :acme_email, String, default: ''
+property :nameservers, Array, default: []
 
 # default['headscale']['http_scheme'] = 'http'
 # default['headscale']['hostname'] = ''
@@ -66,7 +67,8 @@ action :create do
     'enable_ssl' => new_resource.enable_ssl,
     'acme_email' => new_resource.acme_email,
     'acl_path' => new_resource.acl_path,
-    'base_domain' => new_resource.base_domain
+    'base_domain' => new_resource.base_domain,
+    'nameservers' => new_resource.nameservers
   }
 
   template new_resource.path do

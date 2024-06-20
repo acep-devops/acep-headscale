@@ -26,6 +26,8 @@ headscale_config '/etc/headscale/config.yaml' do
   ip_prefixes node['headscale']['ip_prefixes']
   enable_ssl node['headscale']['enable_ssl']
   acme_email node['headscale']['acme_email']
+  base_domain node['headscale']['base_domain']
+  nameservers node['headscale']['nameservers']
 end
 
 headscale_user 'acep' do 

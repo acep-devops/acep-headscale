@@ -209,7 +209,9 @@ dns_config:
 
   # List of DNS servers to expose to clients.
   nameservers:
-    - 1.1.1.1
+    <%- @nameservers.each do |ns| %>
+    - <%= ns %>
+    <%- end %>
 
   # NextDNS (see https://tailscale.com/kb/1218/nextdns/).
   # "abc123" is example NextDNS ID, replace with yours.
