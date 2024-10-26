@@ -20,7 +20,7 @@ action :install do
     end
 
     dpkg_package headscale_pkg do
-        action :install
+        action [:install, :upgrade]
     end
 end
 

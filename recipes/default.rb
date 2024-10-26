@@ -7,8 +7,8 @@
 acls = data_bag_item('headscale', node['headscale']['acl_data_bag'])['headscale']
 
 headscale 'default' do 
-  version '0.22.3'
-  checksum '2b45be5aa7b95c2512f57c83931ed3eb4f546fca5dfc771c7458a13392adb331'
+  version '0.23.0'
+  checksum '3a610d3941de367a57b63b277054e02dee90084d3a6f6112a57709ec5cdd7b75'
   action [:install, :enable]
   delayed_action [:start]
 end

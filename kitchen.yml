@@ -44,3 +44,12 @@ suites:
     attributes:
       headscale:
         login_server: "http://headscale:8080"
+  - name: client2
+    provisioner:
+      policyfile: policies/acep-headscale-client.rb
+    verifier:
+      inspec_tests:
+        - test/integration/client
+    attributes:
+      headscale:
+        login_server: "http://headscale:8080"
