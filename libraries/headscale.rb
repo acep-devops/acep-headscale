@@ -18,13 +18,13 @@ module AcepHeadscale
 
       users = JSON.parse(user_output)
       @headscale_users ||= users.collect do |user|
-        user["name"]
+        user['name']
       end if !users.nil? && users.length > 0
 
       @headscale_users || []
     end
 
-    def clear_users 
+    def clear_users
       @headscale_users = nil
     end
   end
