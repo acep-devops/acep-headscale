@@ -20,6 +20,7 @@ action :install do
   end
 
   dpkg_package headscale_pkg do
+    options '--force-confdef --force-confnew'
     action [:install, :upgrade]
   end
 end
