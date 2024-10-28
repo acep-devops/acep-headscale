@@ -15,7 +15,7 @@ property :grpc_listen_addr, String, default: '0.0.0.0:50443'
 property :override_local_dns, [true, false], default: false
 property :magicdns, [true, false], default: false
 property :base_domain, String, default: 'acep.priv'
-property :v4_ip_prefixes, Array, default: ['100.64.0.0/10'] 
+property :v4_ip_prefixes, Array, default: ['100.64.0.0/10']
 property :v6_ip_prefixes, Array, default: []
 property :enable_ssl, [true, false], default: true
 property :acme_email, String, default: ''
