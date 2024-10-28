@@ -41,7 +41,7 @@ suites:
     attributes:
       tailscale:
         login_server: "http://headscale:8080"
-        auth_key: 562cf46b221d43218c4306ef87207b705cb6fab28fb3461b
+        auth_key: 41b2256f12fdbc614ebfe6e893882c21df196c5ba2f3f290
   - name: client2
     provisioner:
       policyfile: policies/acep-headscale-client.rb
@@ -50,4 +50,4 @@ suites:
     attributes:
       tailscale:
         login_server: "http://headscale:8080"
-        auth_key: 562cf46b221d43218c4306ef87207b705cb6fab28fb3461b
+        auth_key: 41b2256f12fdbc614ebfe6e893882c21df196c5ba2f3f290

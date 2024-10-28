@@ -23,6 +23,7 @@ property :force_reauth,
         coerce: proc { |p| p ? 'true' : 'false' }
 
 property :hostname, String
+property :timeout, String, default: '30s'
 property :login_server, String, required: true
 property :auth_key_file, String, default: '/etc/tailscale/authkey.cnf'
 
@@ -73,6 +74,7 @@ action :up do
   cmd.push('--force-reauth') if new_resource.force_reauth
   cmd.push('--hostname', new_resource.hostname) if new_resource.hostname
   cmd.push('--login-server', new_resource.login_server) if new_resource.login_server
+  cmd.push('--timeout', new_resource.timeout) if new_resource.timeout
   cmd.push('--json')
   cmd.push('> /etc/tailscale/tailscale.json')
 
