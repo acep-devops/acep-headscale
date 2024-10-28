@@ -32,6 +32,7 @@ suites:
         server_url: "http://localhost:8080"
         port: 8080
         enable_ssl: false
+        magicdns: true
   - name: client
     provisioner:
       policyfile: policies/acep-headscale-client.rb
@@ -40,4 +41,13 @@ suites:
     attributes:
       tailscale:
         login_server: "http://headscale:8080"
-        auth_key: 1af85022c5191a13741e137fdc76068870e9968f35bc8b87
+        auth_key: 562cf46b221d43218c4306ef87207b705cb6fab28fb3461b
+  - name: client2
+    provisioner:
+      policyfile: policies/acep-headscale-client.rb
+    driver:
+      hostname: tailscale-client2
+    attributes:
+      tailscale:
+        login_server: "http://headscale:8080"
+        auth_key: 562cf46b221d43218c4306ef87207b705cb6fab28fb3461b

@@ -11,5 +11,11 @@ default['headscale']['enable_ssl'] = true
 default['headscale']['acme_email'] = 'uaf-acep-ci@alaska.edu'
 default['headscale']['base_domain'] = 'acep.priv'
 
+default['headscale']['ip_prefixes'] = nil
+# default['headscale']['ip_prefixes'] = {
+#   'v6' => [],
+#   'v4' => ['100.64.0.0/10'],
+# }
+
 default['tailscale']['login_server'] = nil
 default['tailscale']['auth_key'] = nil

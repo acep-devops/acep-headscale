@@ -3,7 +3,7 @@ maintainer 'Will Fisher'
 maintainer_email 'whfisher@alaska.edu'
 license 'Apache-2.0'
 description 'Installs/Configures acep-headscale'
-version '0.1.0'
+version '1.0.0'
 chef_version '>= 16.0'
 
 # The `issues_url` points to the location where issues for this cookbook are
