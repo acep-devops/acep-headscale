@@ -14,5 +14,8 @@ default['headscale']['base_domain'] = 'acep.priv'
 default['headscale']['v4_ip_prefixes'] = nil
 default['headscale']['v6_ip_prefixes'] = nil
 
+default['headscale']['users'] = []
+default['headscale']['users_databag'] = ''
+
 default['tailscale']['login_server'] = nil
 default['tailscale']['auth_key'] = nil

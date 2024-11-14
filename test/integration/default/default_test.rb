@@ -17,3 +17,7 @@ describe file('/etc/headscale/acls.json') do
   it { should exist }
   its('content') { should match 'group:infra' }
 end
+
+describe command('headscale user list') do
+  its('stdout') { should match 'acep' }
+end
