@@ -29,6 +29,7 @@ suites:
         - "8080:8080"
     attributes:
       headscale:
+        users_databag: users
         server_url: "http://localhost:8080"
         port: 8080
         enable_ssl: false

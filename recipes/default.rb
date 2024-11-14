@@ -30,6 +30,11 @@ headscale_config '/etc/headscale/config.yaml' do
   nameservers node['headscale']['nameservers']
 end
 
-headscale_user 'acep' do
-  action :create
+users = node['headscale']['users']
+users += data_bag_item('headscale', node['headscale']['users_databag'])['users'] unless node.read('headscale', 'users_databag').empty?
+
+users.uniq.each do |u|
+  headscale_user u do
+    action :create
+  end
 end
