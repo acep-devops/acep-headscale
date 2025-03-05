@@ -14,6 +14,11 @@ property :accept_routes,
         default: false,
         coerce: proc { |p| p ? 'true' : 'false' }
 
+property :reset,
+        [true, false, String],
+        default: false,
+        coerce: proc { |p| p ? 'true' : 'false' }
+
 property :advertise_routes, Array
 property :advertise_tags, Array
 
@@ -67,14 +72,15 @@ action :up do
     cmd.push('--authkey', new_resource.auth_key) if new_resource.auth_key
   end
 
-  cmd.push('--accept-dns') if new_resource.accept_dns
-  cmd.push('--accept-routes') if new_resource.accept_routes
-  cmd.push('--advertise-routes', new_resource.advertise_routes) if new_resource.advertise_routes
-  cmd.push('--advertise-tags', new_resource.advertise_tags) if new_resource.advertise_tags
-  cmd.push('--force-reauth') if new_resource.force_reauth
+  cmd.push('--accept-dns') if new_resource.accept_dns == 'true'
+  cmd.push('--accept-routes') if new_resource.accept_routes == 'true'
+  cmd.push('--advertise-routes', new_resource.advertise_routes.join(',')) if new_resource.advertise_routes&.any?
+  cmd.push('--advertise-tags', new_resource.advertise_tags.join(',')) if new_resource.advertise_tags&.any?
+  cmd.push('--force-reauth') if new_resource.force_reauth == 'true'
   cmd.push('--hostname', new_resource.hostname) if new_resource.hostname
   cmd.push('--login-server', new_resource.login_server) if new_resource.login_server
   cmd.push('--timeout', new_resource.timeout) if new_resource.timeout
+  cmd.push('--reset') if new_resource.reset == 'true'
   cmd.push('--json')
   cmd.push('> /etc/tailscale/tailscale.json')
 
