@@ -19,3 +19,8 @@ default['headscale']['users_databag'] = ''
 
 default['tailscale']['login_server'] = nil
 default['tailscale']['auth_key'] = nil
+default['tailscale']['advertise_routes'] = []
+default['tailscale']['advertise_tags'] = []
+default['tailscale']['accept_dns'] = true
+default['tailscale']['accept_routes'] = false
+default['tailscale']['reset'] = false

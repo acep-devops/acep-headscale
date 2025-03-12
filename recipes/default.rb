@@ -7,8 +7,8 @@
 acls = data_bag_item('headscale', node['headscale']['acl_data_bag'])['headscale']
 
 headscale 'default' do
-  version '0.23.0'
-  checksum '3a610d3941de367a57b63b277054e02dee90084d3a6f6112a57709ec5cdd7b75'
+  version '0.25.1'
+  checksum 'eae66279f985a131338856193e88d0731391375961e3e75b27d1762380c594b3'
   action [:install, :enable]
   delayed_action [:start]
 end
@@ -35,6 +35,6 @@ users += data_bag_item('headscale', node['headscale']['users_databag'])['users']
 
 users.uniq.each do |u|
   headscale_user u do
-    action :create
+    delayed_action :create
   end
 end

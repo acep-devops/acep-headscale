@@ -24,6 +24,25 @@ module AcepHeadscale
       @headscale_users || []
     end
 
+    def headscale_routes
+      @headscale_routes ||= fetch_headscale_routes
+    end
+
+    def fetch_headscale_routes
+      routes_output = shell_out('headscale routes list -o json').stdout
+      if routes_output.nil? || routes_output.empty?
+        return {}
+      end
+
+      routes = {}
+      json_routes = JSON.parse(routes_output)
+      json_routes.each do |route|
+        routes[route['prefix']] = route
+      end if !json_routes.nil? && !json_routes.empty?
+
+      routes || {}
+    end
+
     def clear_users
       @headscale_users = nil
     end
